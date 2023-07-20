@@ -34,6 +34,7 @@ class AntiBERTyOutput(ModelOutput):
 
     loss: Optional[torch.FloatTensor] = None
     prediction_logits: torch.FloatTensor = None
+    logits: Optional[torch.FloatTensor] = None
     species_logits: torch.FloatTensor = None
     chain_logits: torch.FloatTensor = None
     graft_logits: torch.FloatTensor = None
@@ -147,6 +148,7 @@ class AntiBERTy(BertPreTrainedModel):
         return AntiBERTyOutput(
             loss=total_loss,
             prediction_logits=prediction_scores,
+            logits=prediction_scores,
             species_logits=species_score,
             chain_logits=chain_score,
             graft_logits=graft_score,
